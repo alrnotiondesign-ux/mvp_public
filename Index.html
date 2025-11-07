@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIDEO - Votre coach financier intelligent</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+<!-- NAVIGATION UNIVERSELLE -->
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="nav-brand">
+            <a href="index.html" class="logo">AIDEO</a>
+        </div>
+
+        <!-- Navigation Desktop -->
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="index.html" id="nav-accueil">Accueil</a></li>
+                <li><a href="vision.html" id="nav-vision">Notre vision</a></li>
+                <li><a href="offres.html" id="nav-offres">Offres</a></li>
+                <li><a href="fiches.html" id="nav-fiches">Fiches</a></li>
+                <li><a href="demo-leo.html" id="nav-leo">Démo Léo</a></li>
+                <li><a href="early-access.html" id="nav-early">Early Access</a></li>
+            </ul>
+        </div>
+
+        <!-- Actions Desktop -->
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="btn-login">Connexion</a>
+            <a href="register.html" class="btn-register">Inscription</a>
+        </div>
+
+        <!-- Toggle Mobile -->
+        <button class="nav-mobile-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Menu Mobile -->
+<div class="nav-mobile-menu" id="mobileMenu">
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="fiches.html">Fiches</a></li>
+        <li><a href="demo-leo.html">Démo Léo</a></li>
+        <li><a href="early-access.html">Early Access</a></li>
+    </ul>
+    <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn-login">Connexion</a>
+        <a href="register.html" class="btn-register">Inscription</a>
+    </div>
+</div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="badge">🚀 Lancement 2025</div>
+                <h1 class="hero-title">
+                    Vos finances,
+                    <span class="gradient-text">enfin compréhensibles</span>
+                </h1>
+                <p class="hero-description">
+                    Léo transforme la complexité fiscale en opportunités claires. 
+                    <strong>Étudiant, famille ou professionnel</strong> - obtenez des conseils personnalisés en temps réel.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">+85%</div>
+                        <div class="stat-label">de confiance financière</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">~450€</div>
+                        <div class="stat-label">d'économies moyennes</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">3min</div>
+                        <div class="stat-label">pour une réponse précise</div>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="location.href='demo-leo.html'">
+                        <i class="fas fa-robot"></i>
+                        Tester Léo gratuitement
+                    </button>
+                    <button class="btn btn-secondary" onclick="location.href='early-access.html'">
+                        <i class="fas fa-crown"></i>
+                        Accès Early User
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="chat-preview">
+                    <div class="chat-message user">
+                        <div class="avatar">👤</div>
+                        <div class="message">Je suis étudiant avec un job, que dois-je déclarer ?</div>
+                    </div>
+                    <div class="chat-message leo">
+                        <div class="avatar">🤖</div>
+                        <div class="message">
+                            Salut ! Bonne nouvelle : en tant qu'étudiant, tu bénéficies d'une franchise jusqu'à <strong>4 884€/an</strong>. Laisse-moi t'expliquer ! 
+                            <div class="quick-actions">
+                                <span class="quick-action">📚 Voir la fiche étudiante</span>
+                                <span class="quick-action">🧮 Simuler mes aides</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Une expérience financière<br><span class="gradient-text">révolutionnaire</span></h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Léo, votre expert IA</h3>
+                    <p>Notre intelligence artificielle spécialisée en fiscalité française vous guide comme un vrai expert-comptable.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Réponses en temps réel</li>
+                        <li><i class="fas fa-check"></i> Explications pédagogiques</li>
+                        <li><i class="fas fa-check"></i> Recommandations personnalisées</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Fiches éducatives</h3>
+                    <p>Des guides clairs et structurés pour chaque situation de vie.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Par profil (étudiant, famille, pro)</li>
+                        <li><i class="fas fa-check"></i> Exemples concrets</li>
+                        <li><i class="fas fa-check"></i> Mises à jour régulières</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧮</div>
+                    <h3>Simulateurs intelligents</h3>
+                    <p>Calculez vos impôts, aides et optimisations en quelques clics.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Calculateur d'impôts</li>
+                        <li><i class="fas fa-check"></i> Simulateur d'aides</li>
+                        <li><i class="fas fa-check"></i> Optimisateur de revenus</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à révolutionner votre relation avec l'argent ?</h2>
+                <p>Rejoignez les premiers utilisateurs et bénéficiez d'un accès privilégié.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-large btn-primary" onclick="location.href='register.html'">
+                        <i class="fas fa-rocket"></i>
+                        Créer mon compte
+                    </button>
+                    <button class="btn btn-large btn-outline" onclick="location.href='early-access.html'">
+                        <i class="fas fa-crown"></i>
+                        Devenir Early User
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">AIDEO</div>
+                    <p>Votre coach financier intelligent</p>
+                </div>
+                <div class="footer-links">
+                    <a href="vision.html">Notre vision</a>
+                    <a href="offres.html">Nos offres</a>
+                    <a href="mailto:contact@aideo.fr">Contact investisseurs</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   <script src="js/main.js"></script>
+</body>
+</html>

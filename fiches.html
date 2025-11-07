@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiches Éducatives - AIDEO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .fiches-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--bg-light);
+            background: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        .fiches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .fiche-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fiche-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .fiche-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-etudiant { background: #10b981; color: white; }
+        .badge-famille { background: #3b82f6; color: white; }
+        .badge-pro { background: #f59e0b; color: white; }
+
+        .fiche-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .fiche-card h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .fiche-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .fiche-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .fiche-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .fiche-features i {
+            color: var(--primary-green);
+        }
+
+        .fiche-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-fiche {
+            flex: 1;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-fiche {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-secondary-fiche {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-primary-fiche:hover, .btn-secondary-fiche:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+<!-- NAVIGATION UNIVERSELLE -->
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="nav-brand">
+            <a href="index.html" class="logo">AIDEO</a>
+        </div>
+
+        <!-- Navigation Desktop -->
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="index.html" id="nav-accueil">Accueil</a></li>
+                <li><a href="offres.html" id="nav-offres">Offres</a></li>
+                <li><a href="fiches.html" id="nav-fiches">Fiches</a></li>
+                <li><a href="demo-leo.html" id="nav-leo">Démo Léo</a></li>
+                <li><a href="early-access.html" id="nav-early">Early Access</a></li>
+            </ul>
+        </div>
+
+        <!-- Actions Desktop -->
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="btn-login">Connexion</a>
+            <a href="register.html" class="btn-register">Inscription</a>
+        </div>
+
+        <!-- Toggle Mobile -->
+        <button class="nav-mobile-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Menu Mobile -->
+<div class="nav-mobile-menu" id="mobileMenu">
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="fiches.html">Fiches</a></li>
+        <li><a href="demo-leo.html">Démo Léo</a></li>
+        <li><a href="early-access.html">Early Access</a></li>
+    </ul>
+    <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn-login">Connexion</a>
+        <a href="register.html" class="btn-register">Inscription</a>
+    </div>
+</div>
+
+    <!-- Fiches Header -->
+    <section class="fiches-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Votre bibliothèque <span class="gradient-text">financière</span></h1>
+                <p>Des guides clairs et concrets pour chaque situation de vie. Apprenez à optimiser vos finances en toute confiance.</p>
+                
+                <div class="fiches-stats">
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Fiches disponibles</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Profils couverts</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Connaissances à partager</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fiches Filters -->
+    <section class="fiches-filters-section">
+        <div class="container">
+            <div class="fiches-filters">
+                <button class="filter-btn active" data-filter="all">Toutes les fiches</button>
+                <button class="filter-btn" data-filter="etudiant">🎓 Étudiant</button>
+                <button class="filter-btn" data-filter="famille">💑 Famille</button>
+                <button class="filter-btn" data-filter="pro">🔧 Professionnel</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fiches Grid -->
+    <section class="fiches-grid-section">
+        <div class="container">
+            <div class="fiches-grid" id="fiches-container">
+                <!-- Fiche Étudiant 1 -->
+                <div class="fiche-card" data-category="etudiant">
+                    <div class="fiche-badge badge-etudiant">Étudiant</div>
+                    <div class="fiche-icon">🎓</div>
+                    <h3>Mes 3 aides étudiantes incontournables</h3>
+                    <p>Découvrez les aides auxquelles vous avez droit en tant qu'étudiant et comment les obtenir facilement.</p>
+                    
+                    <ul class="fiche-features">
+                        <li><i class="fas fa-check"></i> APL et aides au logement</li>
+                        <li><i class="fas fa-check"></i> Bourses sur critères sociaux</li>
+                        <li><i class="fas fa-check"></i> Aides spécifiques selon votre région</li>
+                    </ul>
+                    
+                    <div class="fiche-actions">
+                        <a href="fiches-content/etudiant-1.html" class="btn-fiche btn-primary-fiche">
+                            <i class="fas fa-book-open"></i> Lire la fiche
+                        </a>
+                        <a href="demo-leo.html" class="btn-fiche btn-secondary-fiche">
+                            <i class="fas fa-robot"></i> Demander à Léo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fiche Famille 1 -->
+                <div class="fiche-card" data-category="famille">
+                    <div class="fiche-badge badge-famille">Famille</div>
+                    <div class="fiche-icon">💑</div>
+                    <h3>Optimiser ses impôts en couple</h3>
+                    <p>Maximisez vos avantages fiscaux lorsque vous déclarez vos impôts en couple avec ou sans enfants.</p>
+                    
+                    <ul class="fiche-features">
+                        <li><i class="fas fa-check"></i> Quotient familial expliqué</li>
+                        <li><i class="fas fa-check"></i> Déductions spécifiques couple</li>
+                        <li><i class="fas fa-check"></i> Optimisation revenus multiples</li>
+                    </ul>
+                    
+                    <div class="fiche-actions">
+                        <a href="fiches-content/famille-1.html" class="btn-fiche btn-primary-fiche">
+                            <i class="fas fa-book-open"></i> Lire la fiche
+                        </a>
+                        <a href="demo-leo.html" class="btn-fiche btn-secondary-fiche">
+                            <i class="fas fa-robot"></i> Demander à Léo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fiche Pro 1 -->
+                <div class="fiche-card" data-category="pro">
+                    <div class="fiche-badge badge-pro">Professionnel</div>
+                    <div class="fiche-icon">🔧</div>
+                    <h3>Choisir entre micro-entreprise et EURL</h3>
+                    <p>Comparaison détaillée pour faire le bon choix de statut en fonction de votre activité et objectifs.</p>
+                    
+                    <ul class="fiche-features">
+                        <li><i class="fas fa-check"></i> Charges sociales comparées</li>
+                        <li><i class="fas fa-check"></i> Avantages et inconvénients</li>
+                        <li><i class="fas fa-check"></i> Seuils et obligations</li>
+                    </ul>
+                    
+                    <div class="fiche-actions">
+                        <a href="fiches-content/artisan-1.html" class="btn-fiche btn-primary-fiche">
+                            <i class="fas fa-book-open"></i> Lire la fiche
+                        </a>
+                        <a href="demo-leo.html" class="btn-fiche btn-secondary-fiche">
+                            <i class="fas fa-robot"></i> Demander à Léo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fiche Étudiant 2 -->
+                <div class="fiche-card" data-category="etudiant">
+                    <div class="fiche-badge badge-etudiant">Étudiant</div>
+                    <div class="fiche-icon">💰</div>
+                    <h3>Job étudiant : déclarer ou pas ?</h3>
+                    <p>Tout comprendre sur la déclaration des revenus étudiants et les franchises disponibles.</p>
+                    
+                    <ul class="fiche-features">
+                        <li><i class="fas fa-check"></i> Franchise de 4 884€/an</li>
+                        <li><i class="fas fa-check"></i> Cas particuliers expliqués</li>
+                        <li><i class="fas fa-check"></i> Impact sur les aides</li>
+                    </ul>
+                    
+                    <div class="fiche-actions">
+                        <a href="#" class="btn-fiche btn-primary-fiche">
+                            <i class="fas fa-book-open"></i> Lire la fiche
+                        </a>
+                        <a href="demo-leo.html" class="btn-fiche btn-secondary-fiche">
+                            <i class="fas fa-robot"></i> Demander à Léo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fiche Famille 2 -->
+                <div class="fiche-card" data-category="famille">
+                    <div class="fiche-badge badge-famille">Famille</div>
+                    <div class="fiche-icon">🏠</div>
+                    <h3>Aides à l'achat immobilier</h3>
+                    <p>Guide complet des aides disponibles pour votre premier achat immobilier en famille.</p>
+                    
+                    <ul class="fiche-features">
+                        <li><i class="fas fa-check"></i> PTZ et prêts aidés</li>
+                        <li><i class="fas fa-check"></i> Aides locales et régionales</li>
+                        <li><i class="fas fa-check"></i> Optimisation crédit</li>
+                    </ul>
+                    
+                    <div class="fiche-actions">
+                        <a href="#" class="btn-fiche btn-primary-fiche">
+                            <i class="fas fa-book-open"></i> Lire la fiche
+                        </a>
+                        <a href="demo-leo.html" class="btn-fiche btn-secondary-fiche">
+                            <i class="fas fa-robot"></i> Demander à Léo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fiche Pro 2 -->
+                <div class="fiche-card" data-category="pro">
+                    <div class="fiche-badge badge-pro">Professionnel</div>
+                    <div class="fiche-icon">📊</div>
+                    <h3>TVA : franchise ou pas ?</h3>
+                    <p>Comprendre les seuils de TVA et faire le bon choix pour votre entreprise.</p>
+                    
+                    <ul class="fiche-features">
+                        <li><i class="fas fa-check"></i> Seuils 2024 expliqués</li>
+                        <li><i class="fas fa-check"></i> Avantages de la franchise</li>
+                        <li><i class="fas fa-check"></i> Passage au réel simplifié</li>
+                    </ul>
+                    
+                    <div class="fiche-actions">
+                        <a href="#" class="btn-fiche btn-primary-fiche">
+                            <i class="fas fa-book-open"></i> Lire la fiche
+                        </a>
+                        <a href="demo-leo.html" class="btn-fiche btn-secondary-fiche">
+                            <i class="fas fa-robot"></i> Demander à Léo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="fiches-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
+                <p>Léo est là pour répondre à toutes vos questions financières, 24h/24 et 7j/7</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-large btn-primary" onclick="location.href='demo-leo.html'">
+                        <i class="fas fa-robot"></i>
+                        Discuter avec Léo
+                    </button>
+                    <button class="btn btn-large btn-outline" onclick="location.href='offres.html'">
+                        <i class="fas fa-crown"></i>
+                        Voir toutes les fiches
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">AIDEO</div>
+                    <p>Votre coach financier intelligent</p>
+                </div>
+                <div class="footer-links">
+                    <a href="vision.html">Notre vision</a>
+                    <a href="offres.html">Nos offres</a>
+                    <a href="mailto:contact@aideo.fr">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/fiches.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

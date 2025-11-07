@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès Anticipé - AIDEO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation - MÊME STRUCTURE QUE INDEX -->
+   <!-- NAVIGATION UNIVERSELLE -->
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="nav-brand">
+            <a href="index.html" class="logo">AIDEO</a>
+        </div>
+
+        <!-- Navigation Desktop -->
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="index.html" id="nav-accueil">Accueil</a></li>
+                <li><a href="offres.html" id="nav-offres">Offres</a></li>
+                <li><a href="fiches.html" id="nav-fiches">Fiches</a></li>
+                <li><a href="demo-leo.html" id="nav-leo">Démo Léo</a></li>
+                <li><a href="early-access.html" id="nav-early">Early Access</a></li>
+            </ul>
+        </div>
+
+        <!-- Actions Desktop -->
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="btn-login">Connexion</a>
+            <a href="register.html" class="btn-register">Inscription</a>
+        </div>
+
+        <!-- Toggle Mobile -->
+        <button class="nav-mobile-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Menu Mobile -->
+<div class="nav-mobile-menu" id="mobileMenu">
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="fiches.html">Fiches</a></li>
+        <li><a href="demo-leo.html">Démo Léo</a></li>
+        <li><a href="early-access.html">Early Access</a></li>
+    </ul>
+    <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn-login">Connexion</a>
+        <a href="register.html" class="btn-register">Inscription</a>
+    </div>
+</div>
+
+    <!-- Early Access Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <h1 class="section-title">Accès Anticipé Exclusif</h1>
+            <p class="section-subtitle">Rejoignez notre liste d'attente privilégiée et bénéficiez d'avantages exclusifs</p>
+            
+            <div class="pricing-grid">
+                <!-- Carte Principale -->
+                <div class="pricing-card" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto;">
+                    <div class="card-header">
+                        <h2>🚀 Accès Anticipé Gratuit</h2>
+                        <div class="price" style="font-size: 1.5rem; color: var(--primary-green);">+ 3 mois offerts à votre inscription</div>
+                        <p>Bénéficiez d'avantages exclusifs lors du lancement officiel</p>
+                    </div>
+
+                    <!-- Stats -->
+                    <div style="display: flex; justify-content: center; gap: 3rem; margin: 2rem 0;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-blue);">247</div>
+                            <div style="color: var(--text-light); font-size: 0.875rem;">Personnes déjà inscrites</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-blue);">50</div>
+                            <div style="color: var(--text-light); font-size: 0.875rem;">Places restantes</div>
+                        </div>
+                    </div>
+
+                    <!-- Formulaire -->
+                    <form style="margin: 2rem 0;" onsubmit="handleSubmit(event)">
+                        <div style="margin-bottom: 1rem;">
+                            <input type="text" placeholder="Votre nom complet" required 
+                                   style="width: 100%; padding: 1rem; border: 1px solid var(--text-lighter); border-radius: var(--border-radius); font-size: 1rem; background: var(--bg-white); color: var(--text-dark);">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <input type="email" placeholder="Votre meilleur email" required 
+                                   style="width: 100%; padding: 1rem; border: 1px solid var(--text-lighter); border-radius: var(--border-radius); font-size: 1rem; background: var(--bg-white); color: var(--text-dark);">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Quel est votre profil ?</label>
+                            <select style="width: 100%; padding: 1rem; border: 1px solid var(--text-lighter); border-radius: var(--border-radius); font-size: 1rem; background: var(--bg-white); color: var(--text-dark);">
+                                <option value="">Sélectionnez votre profil</option>
+                                <option value="etudiant">Étudiant</option>
+                                <option value="jeune-actif">Jeune actif</option>
+                                <option value="famille">Famille</option>
+                                <option value="independant">Indépendant/Profession libérale</option>
+                                <option value="retraite">Retraité</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="cta-btn primary" style="width: 100%;">
+                            Rejoindre la liste d'attente
+                        </button>
+                    </form>
+                    
+                    <div style="text-align: center; color: var(--text-light); font-size: 0.875rem; margin-top: 1rem;">
+                        <i class="fas fa-shield-alt"></i> 100% confidentiel • Pas de spam
+                    </div>
+                </div>
+
+                <!-- Avantages -->
+                <div class="pricing-card" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto;">
+                    <div class="card-header">
+                        <h3>Vos avantages exclusifs :</h3>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-gift" style="color: var(--primary-green);"></i> <strong>3 mois offerts</strong> sur l'offre de votre choix</li>
+                        <li><i class="fas fa-clock" style="color: var(--primary-blue);"></i> <strong>Accès prioritaire</strong> 48h avant tout le monde</li>
+                        <li><i class="fas fa-comments" style="color: var(--primary-yellow);"></i> <strong>Influencez le produit</strong> avec vos retours</li>
+                        <li><i class="fas fa-crown" style="color: #8b5cf6;"></i> <strong>Tarif fondateur</strong> garanti à vie</li>
+                    </ul>
+                </div>
+
+                <!-- FAQ -->
+                <div class="pricing-card" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto;">
+                    <div class="card-header">
+                        <h3>Questions Fréquentes</h3>
+                    </div>
+                    <div style="text-align: left;">
+                        <div style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--bg-light);">
+                            <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">Quand aura lieu le lancement ?</h4>
+                            <p style="color: var(--text-light); margin: 0;">Le lancement officiel est prévu pour Janvier 2025. Les early users auront accès dès Décembre 2024.</p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--bg-light);">
+                            <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">L'accès anticipé est-il vraiment gratuit ?</h4>
+                            <p style="color: var(--text-light); margin: 0;">Absolument ! L'inscription à la liste d'attente est 100% gratuite. Vous recevrez en plus 3 mois d'abonnement offerts.</p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--bg-light);">
+                            <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">Que se passe-t-il après l'inscription ?</h4>
+                            <p style="color: var(--text-light); margin: 0;">Vous recevrez un email de confirmation immédiatement, puis des updates exclusives sur l'avancement du projet.</p>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">Puis-je partager ce lien ?</h4>
+                            <p style="color: var(--text-light); margin: 0;">Oui ! Partagez avec vos proches. Les places sont limitées à 300 early users.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Final -->
+                <div class="pricing-card popular" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%); color: white;">
+                    <div class="card-header">
+                        <h2 style="color: white;">Prêt à rejoindre la révolution financière ?</h2>
+                        <p style="color: rgba(255,255,255,0.9);">Les places s'envolent rapidement - Ne manquez pas cette opportunité</p>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary-green);"></i>
+                            <span>Inscription gratuite</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-check-circle" style="color: var(--primary-green);"></i>
+                            <span>50 places restantes</span>
+                        </div>
+                    </div>
+                    
+                    <button class="cta-btn primary" onclick="document.querySelector('form').scrollIntoView({ behavior: 'smooth' })" style="background: var(--primary-yellow); color: var(--text-dark); width: 100%;">
+                        Rejoindre Maintenant
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">AIDEO</div>
+                    <p>Votre coach financier intelligent</p>
+                </div>
+                <div class="footer-links">
+                    <a href="vision.html">Notre vision</a>
+                    <a href="offres.html">Nos offres</a>
+                    <a href="mailto:contact@aideo.fr">Contact investisseurs</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            // Logique d'inscription à ajouter
+            alert('Merci ! Vous serez bientôt contacté.');
+        }
+    </script>
+</body>
+</html>

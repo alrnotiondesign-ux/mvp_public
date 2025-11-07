@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offres - AIDEO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+   <!-- NAVIGATION UNIVERSELLE -->
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="nav-brand">
+            <a href="index.html" class="logo">AIDEO</a>
+        </div>
+
+        <!-- Navigation Desktop -->
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="index.html" id="nav-accueil">Accueil</a></li>
+                <li><a href="offres.html" id="nav-offres">Offres</a></li>
+                <li><a href="fiches.html" id="nav-fiches">Fiches</a></li>
+                <li><a href="demo-leo.html" id="nav-leo">Démo Léo</a></li>
+                <li><a href="early-access.html" id="nav-early">Early Access</a></li>
+            </ul>
+        </div>
+
+        <!-- Actions Desktop -->
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="btn-login">Connexion</a>
+            <a href="register.html" class="btn-register">Inscription</a>
+        </div>
+
+        <!-- Toggle Mobile -->
+        <button class="nav-mobile-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Menu Mobile -->
+<div class="nav-mobile-menu" id="mobileMenu">
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="fiches.html">Fiches</a></li>
+        <li><a href="demo-leo.html">Démo Léo</a></li>
+        <li><a href="early-access.html">Early Access</a></li>
+    </ul>
+    <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn-login">Connexion</a>
+        <a href="register.html" class="btn-register">Inscription</a>
+    </div>
+</div>
+
+    <!-- Section Pricing -->
+    <section class="pricing-section">
+        <div class="container">
+            <h1 class="section-title">Choisissez votre offre</h1>
+            <p class="section-subtitle">Découvrez la solution adaptée à vos besoins</p>
+            
+            <!-- Toggle Période -->
+            <div class="billing-toggle">
+                <button class="toggle-btn active">Mensuel</button>
+                <button class="toggle-btn">Annuel <span>-20%</span></button>
+            </div>
+
+            <!-- Grille des offres -->
+            <div class="pricing-grid">
+                
+                <!-- Carte Starter -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Starter</h3>
+                        <div class="price">0€ <span>/ toujours gratuit</span></div>
+                        <p>Découvrez AIDEO sans engagement</p>
+                    </div>
+                    <ul class="features-list">
+                        <li>3 fiches éducatives par mois</li>
+                        <li>5 questions à Léo par mois</li>
+                        <li>1 simulateur basique</li>
+                        <li class="disabled">Pas de sauvegarde</li>
+                        <li class="disabled">Pas d'alertes</li>
+                        <li>Support basique</li>
+                    </ul>
+                    <div class="pricing-cta">
+                        <a href="register.html" class="cta-btn secondary">Commencer gratuitement</a>
+                    </div>
+                </div>
+
+                <!-- Carte Étudiant -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Populaire</div>
+                    <div class="card-header">
+                        <h3>Étudiant</h3>
+                        <div class="price">4,99€ <span>/ mois</span></div>
+                        <p>Parfait pour démarrer dans la vie active</p>
+                    </div>
+                    <ul class="features-list">
+                        <li>Fiches illimitées (focus étudiant)</li>
+                        <li>Léo IA illimité</li>
+                        <li>Simulateurs aides étudiantes</li>
+                        <li>Gestion budget étudiant</li>
+                        <li>Alertes dates importantes</li>
+                        <li>-50% sur Aideo+ après études</li>
+                    </ul>
+                    <div class="pricing-cta">
+                        <a href="register.html" class="cta-btn primary">Choisir l'offre Étudiant</a>
+                    </div>
+                </div>
+
+                <!-- Carte Aideo+ -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Aideo+</h3>
+                        <div class="price">29,99€ <span>/ mois</span></div>
+                        <p>La solution complète pour les particuliers</p>
+                    </div>
+                    <ul class="features-list">
+                        <li>Toutes les fiches illimitées</li>
+                        <li>Léo IA avancé</li>
+                        <li>Simulateurs avancés</li>
+                        <li>Dashboard personnalisé</li>
+                        <li>Alertes proactives</li>
+                        <li>Gestionnaire budget complet</li>
+                    </ul>
+                    <div class="pricing-cta">
+                        <a href="register.html" class="cta-btn secondary">Choisir Aideo+</a>
+                    </div>
+                </div>
+
+                <!-- Carte Pro (nouvelle) -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Pro</h3>
+                        <div class="price">49,99€ <span>/ mois</span></div>
+                        <p>Pour les indépendants et petites entreprises</p>
+                    </div>
+                    <ul class="features-list">
+                        <li>Tout Aideo+ inclus</li>
+                        <li>Simulateurs professionnels</li>
+                        <li>Gestion compta simplifiée</li>
+                        <li>Alertes juridiques métier</li>
+                        <li>Support prioritaire</li>
+                        <li>Documents professionnels</li>
+                    </ul>
+                    <div class="pricing-cta">
+                        <a href="register.html" class="cta-btn secondary">Choisir Pro</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

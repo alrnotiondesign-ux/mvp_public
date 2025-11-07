@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Vision - AIDEO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation (identique aux autres pages) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">AIDEO</a>
+            </div>
+            <div class="nav-content">
+                <ul class="nav-links">
+                    <li><a href="index.html" id="nav-accueil">Accueil</a></li>
+                    <li><a href="offres.html" id="nav-offres">Offres</a></li>
+                    <li><a href="fiches.html" id="nav-fiches">Fiches</a></li>
+                    <li><a href="demo-leo.html" id="nav-leo">Démo Léo</a></li>
+                    <li><a href="vision.html" id="nav-vision">Notre vision</a></li>
+                    <li><a href="early-access.html" id="nav-early">Early Access</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn-login">Connexion</a>
+                <a href="register.html" class="btn-register">Inscription</a>
+            </div>
+            <button class="nav-mobile-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menu Mobile -->
+    <div class="nav-mobile-menu" id="mobileMenu">
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="offres.html">Offres</a></li>
+            <li><a href="fiches.html">Fiches</a></li>
+            <li><a href="demo-leo.html">Démo Léo</a></li>
+            <li><a href="vision.html">Notre vision</a></li>
+            <li><a href="early-access.html">Early Access</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="btn-login">Connexion</a>
+            <a href="register.html" class="btn-register">Inscription</a>
+        </div>
+    </div>
+
+    <!-- Hero Section (même classe que index.html) -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content" style="text-align: center;">
+                <div class="badge">🌟 Notre Vision</div>
+                <h1 class="hero-title">
+                    Révolutionner l'éducation <span class="gradient-text">financière</span> en France
+                </h1>
+                <p class="hero-description">
+                    Chez AIDEO, nous croyons que chaque Français mérite de comprendre et de maîtriser ses finances, 
+                    sans avoir besoin de devenir expert-comptable.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section (même structure que index.html) -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Notre <span class="gradient-text">Mission</span></h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 3rem; font-size: 1.125rem;">
+                Démocratiser l'accès à l'éducation financière en France grâce à la technologie et l'intelligence artificielle.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Simplifier</h3>
+                    <p>Rendre la fiscalité et la finance accessibles à tous, avec un langage clair et des explications pédagogiques.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Automatiser</h3>
+                    <p>Utiliser l'IA pour personnaliser les conseils et détecter les opportunités d'optimisation automatiquement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Éduquer</h3>
+                    <p>Former les Français à la gestion financière pour leur donner les clés de l'indépendance économique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valeurs Section -->
+    <section class="features" style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">Nos <span class="gradient-text">Valeurs</span></h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Transparence</h3>
+                    <p>Nous expliquons clairement comment fonctionnent nos algorithmes et nos recommandations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Accessibilité</h3>
+                    <p>Des prix adaptés à tous les budgets, avec une offre gratuite pour démocratiser l'accès.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Innovation</h3>
+                    <p>Nous repoussons constamment les limites de la technologie pour mieux vous servir.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Bienveillance</h3>
+                    <p>Un ton rassurant et pédagogique, jamais dans le jugement ou la complexité inutile.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final (identique aux autres pages) -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Rejoignez la révolution financière</h2>
+                <p>Investissez dans votre éducation financière et prenez le contrôle de votre avenir.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-large btn-primary" onclick="location.href='register.html'">
+                        <i class="fas fa-rocket"></i>
+                        Nous rejoindre
+                    </button>
+                    <button class="btn btn-large btn-outline" onclick="location.href='early-access.html'">
+                        <i class="fas fa-crown"></i>
+                        Devenir Early User
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (identique) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">AIDEO</div>
+                    <p>Votre coach financier intelligent</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:contact@aideo.fr">Contact investisseurs</a>
+                    <a href="#">Carrières</a>
+                    <a href="#">Presse</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

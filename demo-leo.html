@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester Léo - AIDEO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .chat-container {
+            max-width: 800px;
+            margin: 100px auto 50px;
+            background: white;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .chat-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: var(--bg-light);
+        }
+
+        .chat-input-container {
+            padding: 1rem;
+            border-top: 1px solid var(--bg-light);
+            background: white;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--bg-light);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .send-button {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+        }
+
+        .quick-questions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .quick-question {
+            padding: 1rem;
+            background: white;
+            border: 2px solid var(--bg-light);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .quick-question:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: var(--text-light);
+            border-radius: 50%;
+            animation: typing-dot 1.4s ease-in-out infinite both;
+        }
+
+        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typing-dot {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .suggestion-btn, .action-btn {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.25rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .suggestion-btn:hover, .action-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+<!-- NAVIGATION UNIVERSELLE -->
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="nav-brand">
+            <a href="index.html" class="logo">AIDEO</a>
+        </div>
+
+        <!-- Navigation Desktop -->
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="index.html" id="nav-accueil">Accueil</a></li>
+                <li><a href="offres.html" id="nav-offres">Offres</a></li>
+                <li><a href="fiches.html" id="nav-fiches">Fiches</a></li>
+                <li><a href="demo-leo.html" id="nav-leo">Démo Léo</a></li>
+                <li><a href="early-access.html" id="nav-early">Early Access</a></li>
+            </ul>
+        </div>
+
+        <!-- Actions Desktop -->
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="btn-login">Connexion</a>
+            <a href="register.html" class="btn-register">Inscription</a>
+        </div>
+
+        <!-- Toggle Mobile -->
+        <button class="nav-mobile-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Menu Mobile -->
+<div class="nav-mobile-menu" id="mobileMenu">
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="fiches.html">Fiches</a></li>
+        <li><a href="demo-leo.html">Démo Léo</a></li>
+        <li><a href="early-access.html">Early Access</a></li>
+    </ul>
+    <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn-login">Connexion</a>
+        <a href="register.html" class="btn-register">Inscription</a>
+    </div>
+</div>
+
+    <!-- Chat Demo -->
+    <section class="chat-demo-section">
+        <div class="container">
+            <div class="demo-header">
+                <h1>Discutez avec <span class="gradient-text">Léo</span>, votre expert financier IA</h1>
+                <p>Posez vos questions sur les impôts, aides sociales, épargne, budget... Léo vous guide !</p>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h2>🤖 Léo - Assistant Financier Intelligent</h2>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Messages will be added here by JavaScript -->
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input type="text" class="chat-input" id="chat-input" placeholder="Posez votre question à Léo...">
+                        <button class="send-button" id="send-message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Questions -->
+            <div class="quick-questions-section">
+                <h3>Questions rapides pour démarrer :</h3>
+                <div class="quick-questions" id="quick-questions">
+                    <!-- Quick questions will be added by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Suggestions Container -->
+            <div class="suggestions-container" id="chat-suggestions">
+                <!-- Suggestions will be added by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section class="leo-features">
+        <div class="container">
+            <h2 class="section-title">Pourquoi <span class="gradient-text">Léo est unique</span> ?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Spécialisé Fiscalité Française</h3>
+                    <p>Léo connaît parfaitement le système fiscal français et ses spécificités.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Pédagogique et Clair</h3>
+                    <p>Il explique les concepts complexes en termes simples et compréhensibles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Réponses en Temps Réel</h3>
+                    <p>Obtenez des réponses précises en quelques secondes seulement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Recommandations Personnalisées</h3>
+                    <p>Léo vous guide vers les fiches et outils adaptés à votre situation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">AIDEO</div>
+                    <p>Votre coach financier intelligent</p>
+                </div>
+                <div class="footer-links">
+                    <a href="vision.html">Notre vision</a>
+                    <a href="offres.html">Nos offres</a>
+                    <a href="mailto:contact@aideo.fr">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/leo-chat.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

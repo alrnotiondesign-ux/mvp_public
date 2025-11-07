@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - AIDEO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .dashboard {
+            padding: 100px 0 50px;
+            background: var(--bg-light);
+            min-height: 100vh;
+        }
+
+        .dashboard-header {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .welcome-section h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .chart-section, .notifications-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .chart-container {
+            height: 200px;
+            margin: 1rem 0;
+        }
+
+        .notification-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--bg-light);
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-notification-action {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .action-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .action-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .action-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+<!-- NAVIGATION UNIVERSELLE -->
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="nav-brand">
+            <a href="index.html" class="logo">AIDEO</a>
+        </div>
+
+        <!-- Navigation Desktop -->
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="index.html" id="nav-accueil">Accueil</a></li>
+                <li><a href="offres.html" id="nav-offres">Offres</a></li>
+                <li><a href="fiches.html" id="nav-fiches">Fiches</a></li>
+                <li><a href="demo-leo.html" id="nav-leo">Démo Léo</a></li>
+                <li><a href="early-access.html" id="nav-early">Early Access</a></li>
+            </ul>
+        </div>
+
+        <!-- Actions Desktop -->
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="btn-login">Connexion</a>
+            <a href="register.html" class="btn-register">Inscription</a>
+        </div>
+
+        <!-- Toggle Mobile -->
+        <button class="nav-mobile-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Menu Mobile -->
+<div class="nav-mobile-menu" id="mobileMenu">
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="fiches.html">Fiches</a></li>
+        <li><a href="demo-leo.html">Démo Léo</a></li>
+        <li><a href="early-access.html">Early Access</a></li>
+    </ul>
+    <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn-login">Connexion</a>
+        <a href="register.html" class="btn-register">Inscription</a>
+    </div>
+</div>
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+        <div class="container">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <div class="welcome-section">
+                    <h1 id="user-welcome">Bonjour, !</h1>
+                    <p>Voici votre situation financière en un coup d'œil</p>
+                    
+                    <div class="user-info">
+                        <div class="user-avatar" id="user-avatar">U</div>
+                        <div>
+                            <div id="user-profile">Utilisateur</div>
+                            <div class="user-plan">AIDEO+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metrics -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value" id="savings-potential">0</div>
+                    <div class="metric-label">Économies potentielles</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="identified-aids">0</div>
+                    <div class="metric-label">Aides identifiées</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="tax-optimization">0</div>
+                    <div class="metric-label">Optimisation fiscale</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="financial-score">0</div>
+                    <div class="metric-label">Score financier</div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="dashboard-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Savings Chart -->
+                    <div class="chart-section">
+                        <h3>Évolution de vos économies</h3>
+                        <div class="chart-container">
+                            <canvas id="savings-chart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Budget Chart -->
+                    <div class="chart-section">
+                        <h3>Répartition de votre budget</h3>
+                        <div class="chart-container">
+                            <canvas id="budget-chart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <div class="action-card" onclick="location.href='demo-leo.html'">
+                            <div class="action-icon">🤖</div>
+                            <div>Parler à Léo</div>
+                        </div>
+                        <div class="action-card" onclick="location.href='fiches.html'">
+                            <div class="action-icon">📚</div>
+                            <div>Fiches éducatives</div>
+                        </div>
+                        <div class="action-card" onclick="showNotification('Fonctionnalité à venir!', 'info')">
+                            <div class="action-icon">🧮</div>
+                            <div>Simulateurs</div>
+                        </div>
+                        <div class="action-card" onclick="showNotification('Fonctionnalité à venir!', 'info')">
+                            <div class="action-icon">📊</div>
+                            <div>Rapports</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Notifications -->
+                    <div class="notifications-section">
+                        <h3>Alertes et recommandations</h3>
+                        <div id="notifications-list">
+                            <!-- Notifications will be loaded by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Deadlines -->
+                    <div class="notifications-section">
+                        <h3>Échéances à venir</h3>
+                        <div class="notification-item">
+                            <div class="notification-content">
+                                <i class="fas fa-calendar-alt" style="color: #ef4444;"></i>
+                                <div>
+                                    <strong>Déclaration d'impôts</strong>
+                                    <div>Dans 45 jours</div>
+                                </div>
+                            </div>
+                            <button class="btn-notification-action">Préparer</button>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-content">
+                                <i class="fas fa-home" style="color: #10b981;"></i>
+                                <div>
+                                    <strong>Renouvellement APL</strong>
+                                    <div>Dans 30 jours</div>
+                                </div>
+                            </div>
+                            <button class="btn-notification-action">Vérifier</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">AIDEO</div>
+                    <p>Votre coach financier intelligent</p>
+                </div>
+                <div class="footer-links">
+                    <a href="vision.html">Notre vision</a>
+                    <a href="offres.html">Nos offres</a>
+                    <a href="mailto:contact@aideo.fr">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('userAuthenticated');
+            localStorage.removeItem('userData');
+            window.location.href = 'index.html';
+        }
+
+        // Check authentication
+        if (!localStorage.getItem('userAuthenticated')) {
+            window.location.href = 'login.html';
+        }
+
+        // Load user data
+        const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+        if (userData.fullname) {
+            document.getElementById('user-welcome').textContent = `Bonjour, ${userData.fullname} !`;
+            document.getElementById('user-avatar').textContent = userData.fullname.charAt(0).toUpperCase();
+            
+            const profiles = {
+                'etudiant': '🎓 Étudiant',
+                'famille': '💑 Famille',
+                'independant': '🔧 Indépendant',
+                'salarie': '💼 Salarié',
+                'retraite': '🌅 Retraité'
+            };
+            document.getElementById('user-profile').textContent = profiles[userData.profile] || 'Utilisateur';
+        }
+    </script>
+</body>
+</html>

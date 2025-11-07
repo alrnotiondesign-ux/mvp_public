@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - AIDEO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo">AIDEO</div>
+                <h1>Commencez votre voyage financier</h1>
+                <p>Créez votre compte en 2 minutes</p>
+            </div>
+
+            <form class="auth-form" id="register-form">
+                <div class="form-group">
+                    <label for="fullname">Nom complet</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Votre nom complet" required>
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="Créez un mot de passe" required>
+                    <i class="fas fa-lock"></i>
+                    <button type="button" class="toggle-password">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+
+                <div class="password-strength">
+                    <div class="strength-bar">
+                        <div class="strength-fill" id="strength-fill"></div>
+                    </div>
+                    <div class="strength-text" id="strength-text">Faible</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile">Votre profil</label>
+                    <select id="profile" name="profile" required>
+                        <option value="">Sélectionnez votre profil</option>
+                        <option value="etudiant">🎓 Étudiant</option>
+                        <option value="famille">💑 Famille</option>
+                        <option value="independant">🔧 Indépendant/Artisan</option>
+                        <option value="salarie">💼 Salarié</option>
+                        <option value="retraite">🌅 Retraité</option>
+                    </select>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="newsletter" checked>
+                    <span>Recevoir des conseils financiers et offres exclusives</span>
+                </label>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="terms" required>
+                    <span>J'accepte les <a href="#">conditions d'utilisation</a> et la <a href="#">politique de confidentialité</a></span>
+                </label>
+
+                <button type="submit" class="btn btn-primary btn-large btn-block">
+                    <i class="fas fa-user-plus"></i>
+                    Créer mon compte
+                </button>
+
+                <div class="auth-divider">
+                    <span>ou</span>
+                </div>
+
+                <button type="button" class="btn btn-google">
+                    <img src="assets/icons/google.svg" alt="Google">
+                    S'inscrire avec Google
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Déjà un compte ? <a href="login.html">Se connecter</a></p>
+            </div>
+        </div>
+
+        <div class="auth-welcome">
+            <div class="welcome-content">
+                <h2>Bienvenue dans la révolution financière</h2>
+                <p>Rejoignez des milliers de Français qui ont déjà pris le contrôle de leurs finances.</p>
+                <div class="welcome-stats">
+                    <div class="stat">
+                        <div class="number">+2,300</div>
+                        <div class="label">Utilisateurs satisfaits</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">~450€</div>
+                        <div class="label">Économies moyennes</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">4.9/5</div>
+                        <div class="label">Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
